@@ -1,0 +1,15 @@
+.build/
+.swiftpm/
+.DS_Store
+*.locale-project.json
+locale-output/
+bin/
+__pycache__/
+
+dist/
+
+.local/
+.apt-work/
+_site/
+Scripts/check-stash.sh
+Scripts/check-kalipi.sh

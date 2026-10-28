@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Linux Locale Editor</title>
+<style>body{font:17px/1.6 system-ui,sans-serif;max-width:900px;margin:3rem auto;padding:0 1.2rem;color:#202830;background:#f7f9fb}h1,h2{line-height:1.2}a{color:#174f9e}pre{overflow:auto;background:#172533;color:#edf5ff;padding:1.1rem;border-radius:8px;font:14px/1.5 ui-monospace,monospace}code{font-family:ui-monospace,monospace}table{width:100%;border-collapse:collapse}td,th{padding:.7rem;border-bottom:1px solid #ccd5df;text-align:left}.note{border-left:4px solid #174f9e;padding:.3rem 1rem;background:#eaf1fa}footer{margin-top:3rem;color:#586573}</style></head>
+<body><h1>Linux Locale Editor</h1><p>Compose your own Linux locale with section-by-section inheritance, international presets, and formatted glibc previews. Native GTK interface for Xfce, plus an MC-style terminal editor.</p>
+<p><a href="https://github.com/cubiculum-ai/locale-editor">Source and documentation</a> · <a href="https://github.com/cubiculum-ai/locale-editor/releases">Release downloads</a> · <a href="https://github.com/cubiculum-ai/locale-editor/blob/main/docs/apt.md">APT maintenance and key details</a></p>
+<div class="note"><strong>Compatibility:</strong> current Kali Linux, amd64 or arm64, with glibc 2.43 or later. These packages are not older Debian/Ubuntu compatibility builds.</div>
+<h2>Choose an edition</h2><table><tr><th>Package</th><th>Includes</th></tr><tr><td><code>locale-editor-gui</code></td><td>GTK GUI, TUI, and command-line operations</td></tr><tr><td><code>locale-editor-tui</code></td><td>TUI and command-line operations, without GTK dependencies</td></tr></table><p>Both architectures use the same repository. The editions are mutually exclusive; apt replaces one when you install the other.</p>
+<h2>Add the signed APT source</h2><p>Download the archive key and compare its full fingerprint:</p>
+<pre>curl --fail --location --output locale-editor-archive-keyring.asc \
+  https://cubiculum-ai.github.io/locale-editor/apt/locale-editor-archive-keyring.asc
+gpg --show-keys --fingerprint locale-editor-archive-keyring.asc</pre>
+<p><strong>Expected fingerprint:</strong><br><code>EA28 F95D 0277 0287 7D25 A156 1162 D8DB 633F 745C</code></p>
+<p>After verifying it, add the per-source keyring and repository:</p>
+<pre>sudo install -d -m 0755 /etc/apt/keyrings
+sudo install -m 0644 locale-editor-archive-keyring.asc /etc/apt/keyrings/locale-editor-archive-keyring.asc
+sudo tee /etc/apt/sources.list.d/locale-editor.sources &gt;/dev/null &lt;&lt;'SOURCES'
+Types: deb
+URIs: https://cubiculum-ai.github.io/locale-editor/apt/
+Suites: stable
+Components: main
+Architectures: amd64 arm64
+Signed-By: /etc/apt/keyrings/locale-editor-archive-keyring.asc
+SOURCES
+sudo apt update
+sudo apt install locale-editor-gui
+# For a headless machine instead:
+# sudo apt install locale-editor-tui</pre>
+<h2>Use and update</h2><p><code>locale-editor</code> launches the GUI in the GUI edition. <code>locale-editor-tui</code> launches the terminal interface. System-wide locale installation uses polkit administrator authentication; personal installation needs no administrator privileges.</p><p>Update normally with <code>sudo apt update</code> and <code>sudo apt upgrade</code>. Installing these packages does not change your default locale.</p>
+<p>Repository metadata is signed and expires after 90 days. Signature, expiry, and package-hash checks remain enabled. Never use <code>trusted=yes</code> or disable authentication checks.</p>
+<footer>MIT-licensed application. Third-party components retain their own notices. <a href="LICENSE.txt">License</a>.</footer></body></html>

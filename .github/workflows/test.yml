@@ -1,0 +1,10 @@
+name: Swift tests
+on: [push, pull_request]
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    container: swift:6.0-jammy
+    steps:
+      - uses: actions/checkout@v4
+      - run: apt-get update && apt-get install -y --no-install-recommends locales python3
+      - run: bash Scripts/check-linux.sh

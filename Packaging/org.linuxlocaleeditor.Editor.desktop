@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Linux Locale Editor
+Comment=Edit, preview and install custom Linux locales
+Exec=locale-editor --gui
+TryExec=locale-editor
+Icon=org.linuxlocaleeditor.Editor
+Terminal=false
+StartupNotify=true
+Categories=Settings;DesktopSettings;X-XFCE-SettingsDialog;X-XFCE-PersonalSettings;
+Keywords=locale;language;region;date;time;currency;international;

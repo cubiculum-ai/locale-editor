@@ -1,0 +1,75 @@
+escape_char /
+comment_char %
+% Synthetic German-language demonstration, not an official locale.
+LC_IDENTIFICATION
+copy "demo_en"
+END LC_IDENTIFICATION
+
+LC_TIME
+abday "So";"Mo";"Di";"Mi";"Do";"Fr";"Sa"
+day "Sonntag";"Montag";"Dienstag";"Mittwoch";"Donnerstag";"Freitag";"Samstag"
+abmon "Jan";"Feb";"M<U00E4>r";"Apr";"Mai";"Jun";"Jul";"Aug";"Sep";"Okt";"Nov";"Dez"
+mon "Januar";"Februar";"M<U00E4>rz";"April";"Mai";"Juni";"Juli";"August";"September";"Oktober";"November";"Dezember"
+d_fmt "%d.%m.%Y"
+t_fmt "%H:%M:%S"
+d_t_fmt "%a %d %b %Y %T"
+date_fmt "%a %d %b %Y %T %Z"
+am_pm "";""
+t_fmt_ampm ""
+week 7;19971130;4
+first_weekday 2
+first_workday 2
+cal_direction 1
+END LC_TIME
+
+LC_NUMERIC
+decimal_point ","
+thousands_sep "."
+grouping 3;3
+END LC_NUMERIC
+
+LC_MONETARY
+int_curr_symbol "EUR "
+currency_symbol "<U20AC>"
+mon_decimal_point ","
+mon_thousands_sep "."
+mon_grouping 3;3
+positive_sign ""
+negative_sign "-"
+int_frac_digits 2
+frac_digits 2
+p_cs_precedes 0
+p_sep_by_space 1
+n_cs_precedes 0
+n_sep_by_space 1
+p_sign_posn 1
+n_sign_posn 1
+END LC_MONETARY
+
+LC_PAPER
+copy "demo_en"
+END LC_PAPER
+LC_MEASUREMENT
+copy "demo_en"
+END LC_MEASUREMENT
+LC_MESSAGES
+yesexpr "^[+1jJyY]"
+noexpr "^[-0nN]"
+yesstr "ja"
+nostr "nein"
+END LC_MESSAGES
+LC_ADDRESS
+copy "demo_en"
+END LC_ADDRESS
+LC_NAME
+copy "demo_en"
+END LC_NAME
+LC_TELEPHONE
+copy "demo_en"
+END LC_TELEPHONE
+LC_CTYPE
+copy "demo_en"
+END LC_CTYPE
+LC_COLLATE
+copy "demo_en"
+END LC_COLLATE

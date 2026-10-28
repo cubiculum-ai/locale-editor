@@ -1,0 +1,3 @@
+# Preserve upstream notices and the embedded license text verbatim.
+ThirdParty/** whitespace=-blank-at-eol
+Sources/LocaleCore/CurrencySymbols.swift whitespace=-blank-at-eol

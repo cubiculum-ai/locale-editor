@@ -1,0 +1,8 @@
+.build
+.swiftpm
+.git
+.DS_Store
+*.locale-project.json
+locale-output
+bin
+**/__pycache__

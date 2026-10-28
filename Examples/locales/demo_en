@@ -1,0 +1,117 @@
+escape_char /
+comment_char %
+% Synthetic source-editor demonstration, not an official language/territory locale.
+% On Linux use the distribution's full locale sources for actual deployments.
+
+LC_IDENTIFICATION
+title "Locale Editor English demonstration"
+source "Linux Locale Editor"
+address ""
+contact ""
+email ""
+tel ""
+fax ""
+language "English"
+territory "Demonstration"
+revision "1"
+date "2026-10-27"
+category "i18n:2012";LC_IDENTIFICATION
+category "i18n:2012";LC_CTYPE
+category "i18n:2012";LC_COLLATE
+category "i18n:2012";LC_TIME
+category "i18n:2012";LC_NUMERIC
+category "i18n:2012";LC_MONETARY
+category "i18n:2012";LC_MESSAGES
+category "i18n:2012";LC_PAPER
+category "i18n:2012";LC_NAME
+category "i18n:2012";LC_ADDRESS
+category "i18n:2012";LC_TELEPHONE
+category "i18n:2012";LC_MEASUREMENT
+END LC_IDENTIFICATION
+
+LC_TIME
+abday "Sun";"Mon";"Tue";"Wed";"Thu";"Fri";"Sat"
+day "Sunday";"Monday";"Tuesday";"Wednesday";"Thursday";"Friday";"Saturday"
+abmon "Jan";"Feb";"Mar";"Apr";"May";"Jun";"Jul";"Aug";"Sep";"Oct";"Nov";"Dec"
+mon "January";"February";"March";"April";"May";"June";"July";"August";"September";"October";"November";"December"
+d_fmt "%d//%m//%Y"
+t_fmt "%H:%M:%S"
+d_t_fmt "%a %d %b %Y %T"
+date_fmt "%a %d %b %Y %T %Z"
+am_pm "AM";"PM"
+t_fmt_ampm "%I:%M:%S %p"
+week 7;19971130;4
+first_weekday 2
+first_workday 2
+cal_direction 1
+END LC_TIME
+
+LC_NUMERIC
+decimal_point "."
+thousands_sep ","
+grouping 3;3
+END LC_NUMERIC
+
+LC_MONETARY
+int_curr_symbol "GBP "
+currency_symbol "<U00A3>"
+mon_decimal_point "."
+mon_thousands_sep ","
+mon_grouping 3;3
+positive_sign ""
+negative_sign "-"
+int_frac_digits 2
+frac_digits 2
+p_cs_precedes 1
+p_sep_by_space 0
+n_cs_precedes 1
+n_sep_by_space 0
+p_sign_posn 1
+n_sign_posn 1
+END LC_MONETARY
+
+LC_PAPER
+height 297
+width 210
+END LC_PAPER
+
+LC_MEASUREMENT
+measurement 1
+END LC_MEASUREMENT
+
+LC_MESSAGES
+yesexpr "^[+1yY]"
+noexpr "^[-0nN]"
+yesstr "yes"
+nostr "no"
+END LC_MESSAGES
+
+LC_ADDRESS
+postal_fmt "%a%N%f%N%d%N%b%N%s %h%N%e %r%N%T%N%z%N%c%N"
+country_name "Demonstration"
+END LC_ADDRESS
+
+LC_NAME
+name_fmt "%d%t%g%t%m%t%f"
+name_gen ""
+name_mr "Mr"
+name_mrs "Mrs"
+name_miss "Miss"
+name_ms "Ms"
+END LC_NAME
+
+LC_TELEPHONE
+tel_int_fmt "+%c %a %l"
+tel_dom_fmt "%a %l"
+int_select "00"
+int_prefix "44"
+END LC_TELEPHONE
+
+LC_CTYPE
+END LC_CTYPE
+
+LC_COLLATE
+order_start forward
+UNDEFINED
+order_end
+END LC_COLLATE

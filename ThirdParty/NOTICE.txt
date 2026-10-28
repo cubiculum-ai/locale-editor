@@ -1,0 +1,19 @@
+Linux Locale Editor third-party notices
+
+The first-party application and publishing tools are MIT-licensed; see LICENSE.
+
+The standalone Linux executables embed Swift runtime/Foundation/libdispatch
+components from Swift 6.4.1. Their upstream license texts, runtime library
+exceptions, and available notices are included in the Swift/ directory.
+
+Sources:
+https://github.com/swiftlang/swift/tree/swift-6.4.1-RELEASE
+https://github.com/swiftlang/swift-foundation
+https://github.com/swiftlang/swift-corelibs-foundation
+https://github.com/swiftlang/swift-corelibs-libdispatch
+
+The embedded Unicode currency-symbol data and Foundation ICU data retain their
+Unicode/ICU terms; see UNICODE-LICENSE.txt and the upstream runtime notices.
+
+GTK, glibc and other system libraries are dynamically linked dependencies
+provided by the Linux distribution and retain their own licenses and notices.

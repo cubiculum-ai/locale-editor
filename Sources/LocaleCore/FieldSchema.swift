@@ -73,8 +73,8 @@ public struct FieldDefinition: Identifiable, Sendable {
             guard (min...max).contains(n) || monetarySentinel else { throw LocaleEditorError("\(label) must be between \(min) and \(max).") }
         case (.grouping, .integers(let values)):
             guard !values.isEmpty, values.count <= 16,
-                  values.enumerated().allSatisfy({ index, n in (1...127).contains(n) || (index == values.count - 1 && (n == 0 || n == -1)) }) else {
-                throw LocaleEditorError("Use group sizes 1–127; only the final item may be 0 (repeat) or -1 (stop).")
+                  values.enumerated().allSatisfy({ index, n in (0...126).contains(n) || (index == values.count - 1 && n == -1) }) else {
+                throw LocaleEditorError("Use group sizes 1–126. Zero stops grouping; -1 also stops grouping and must be the final item.")
             }
         case (.week, .integers(let values)):
             guard values.count == 3, values[0] == 7, [19971130, 19971201].contains(values[1]), (1...7).contains(values[2]) else {
@@ -137,7 +137,7 @@ public enum FieldSchema {
             ]
         case .numeric:
             return [.init("decimal_point", "Decimal separator"), .init("thousands_sep", "Grouping separator"),
-                    .init("grouping", "Digit grouping", .grouping, "3;3 → 1,234,567; 3;2 → 12,34,567; -1 disables grouping.")]
+                    .init("grouping", "Digit grouping", .grouping, "3;3 → 1,234,567; 3;2 → 12,34,567; 3;0 → 1234,567; -1 disables grouping.")]
         case .monetary:
             var fields: [FieldDefinition] = [
                 .init("currency_symbol", "Currency symbol"),

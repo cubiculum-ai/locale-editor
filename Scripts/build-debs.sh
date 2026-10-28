@@ -69,6 +69,7 @@ Depends: $shared, locales, pkexec
 Provides: locale-editor (= $version)
 Conflicts: locale-editor-$other
 Replaces: locale-editor-$other
+Homepage: https://github.com/cubiculum-ai/locale-editor
 Description: $description
  Compose locales with per-section inheritance, international presets,
  formatted glibc previews, and personal or system-wide installation.

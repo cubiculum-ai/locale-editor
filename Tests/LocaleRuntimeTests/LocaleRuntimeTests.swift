@@ -74,6 +74,16 @@ final class LocaleRuntimeTests: XCTestCase {
         let dateSamples = try live.formatExamples(["%Y-%m-%dT%T%:z", ""], gnuDate: true)
         XCTAssertEqual(dateSamples["%Y-%m-%dT%T%:z"], "2026-10-27T17:04:05+00:00")
         XCTAssertEqual(dateSamples[""], "(empty)")
+
+        // Historical glibc sources use 0;0. Source zero stops grouping, unlike
+        // the terminating NUL byte in compiled locale data, which repeats it.
+        for (groups, expected) in [([0, 0], "1234567.89"), ([3, 0], "1234_567.89")] {
+            try editor.set(.numeric, key: "grouping", value: .integers(groups))
+            try editor.set(.monetary, values: ["mon_grouping": .integers(groups), "mon_thousands_sep": .text("_"), "mon_decimal_point": .text(".")])
+            let result = try LocaleRuntime.preview(editor.project, catalog: catalog, worker: binary)
+            XCTAssertEqual(result.items.first { $0.label == "Number 1234567.89" }?.value, expected)
+            XCTAssertTrue(result.items.first { $0.label == "Currency 1234567.89" }?.value.contains(expected) == true)
+        }
     }
 
     func testDistributionSourceCatalog() throws {

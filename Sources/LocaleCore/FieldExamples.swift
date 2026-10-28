@@ -44,8 +44,8 @@ public enum FieldExamples {
         if case .integers(let groups) = values[monetary ? "mon_grouping" : "grouping"] { grouping = groups } else { grouping = [3, 3] }
         var digits = "1234567", parts: [String] = [], index = 0, last = 0
         while !digits.isEmpty {
-            let next = index < grouping.count ? grouping[index] : last
-            let size = next == 0 ? last : next
+            // localedef source zero stops grouping; an exhausted list repeats its final size.
+            let size = index < grouping.count ? grouping[index] : last
             guard size > 0, size < 127 else { parts.append(digits); break }
             let count = min(size, digits.count)
             parts.append(String(digits.suffix(count))); digits.removeLast(count)
